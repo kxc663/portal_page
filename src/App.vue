@@ -1,60 +1,31 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
+    <CustomAppBar />
     <v-main>
-      <HelloWorld/>
+      <v-alert dense class="mt-2 text-center white--text" color="black" icon="" style="font-size: small;">
+        Google is committed to advancing racial equity for Black communities.
+        <v-btn text color="white" style="font-size: smaller; font-weight: bold;">
+          See how.
+        </v-btn>
+      </v-alert>
+      <BannerComponent
+        :bannerImage="'https://lh3.googleusercontent.com/KWN57FdsV14gg-DtL97jCSdSfd8Y1Hzr5DD01uGP1dF_XR2lJ3EUIu75oeQUOYUmxJcDr4SZ04DmOO6TuaG5P1shLAKNVXFaRPN5Imtq4y0nb2RCUQ=s1500'"
+        :slogan="'Faster, smarter marketing'"
+        :description="'Introducing Google Marketing Platform, a unified advertising and analytics platform for smarter marketing and better results.'"
+        :btn_text="'Sign in to Google Marketing Platform'" />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import CustomAppBar from './components/CustomAppBar.vue';
+import BannerComponent from './components/BannerComponent.vue';
 
 export default {
   name: 'App',
-
   components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+    CustomAppBar,
+    BannerComponent,
+  }
 };
 </script>
