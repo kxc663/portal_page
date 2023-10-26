@@ -3,10 +3,11 @@
         <div class="d-flex align-center mr-2">
             <v-img alt="Google Logo" class="shrink" contain src="../assets/google-logo.svg" transition="scale-transition"
                 width="100" />
-            <v-btn text class="btn-text" style="font-size: large;">Marketing Platform</v-btn>
+            <router-link to="/" tag="v-btn" class="btn-text" active-class="active" style="font-size: large;">Marketing Platform</router-link>
         </div>
-        <v-btn text class="btn-text">For Small Business</v-btn>
-        <v-btn text class="btn-text">For Enterprise</v-btn>
+        <router-link to="/for-small-business" tag="v-btn" class="btn-text" active-class="active">For Small
+            Business</router-link>
+        <router-link to="/for-enterprise" tag="v-btn" class="btn-text" active-class="active">For Enterprise</router-link>
         <v-btn text class="btn-text">Resources</v-btn>
         <v-btn text class="btn-text">Blog</v-btn>
         <v-spacer></v-spacer>
