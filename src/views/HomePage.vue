@@ -5,12 +5,19 @@
             <AlertComponent :alertText="alertText" :btnText="alertBtnText" />
             <BannerComponent :bannerHeight="'30%'" :bannerImage="bannerImageUrl" :slogan="bannerSloganText"
                 :description="bannerDescriptionText" :btn_text="bannerBtnText" />
-            <DescriptionComponent :title="descriptionTitle_s" :description="descriptionText_s" :linkText="descriptionLinkText_s"
-                :linkUrl="descriptionLinkUrl_s" :imageUrl="descriptionImageUrl_s" :imagePosition="descriptionImagePosition_s" />
+            <DescriptionComponent :title="descriptionTitle_s" :description="descriptionText_s"
+                :linkText="descriptionLinkText_s" :linkUrl="descriptionLinkUrl_s" :imageUrl="descriptionImageUrl_s"
+                :imagePosition="descriptionImagePosition_s" />
 
-            <DescriptionComponent :title="descriptionTitle_e" :description="descriptionText_e" :linkText="descriptionLinkText_e"
-                :linkUrl="descriptionLinkUrl_e" :imageUrl="descriptionImageUrl_e" :imagePosition="descriptionImagePosition_e" />
-
+            <DescriptionComponent :title="descriptionTitle_e" :description="descriptionText_e"
+                :linkText="descriptionLinkText_e" :linkUrl="descriptionLinkUrl_e" :imageUrl="descriptionImageUrl_e"
+                :imagePosition="descriptionImagePosition_e" />
+            <p class="main-title">Integrated solutions for every marketer.</p>
+            <div class="cards-container">
+                <CardComponent v-for="card in cards" :key="card.id" :logo="card.logo" :title="card.title"
+                    :description="card.description" />
+            </div>
+            <FooterComponent />
         </v-main>
         <router-view></router-view>
     </v-app>
@@ -21,6 +28,8 @@ import AlertComponent from '../components/AlertComponent.vue';
 import CustomAppBar from '../components/CustomAppBar.vue';
 import BannerComponent from '../components/BannerComponent.vue';
 import DescriptionComponent from '../components/DescriptionComponent.vue';
+import CardComponent from '@/components/CardComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 export default {
     name: 'HomePage',
@@ -28,7 +37,9 @@ export default {
         AlertComponent,
         CustomAppBar,
         BannerComponent,
-        DescriptionComponent
+        DescriptionComponent,
+        CardComponent,
+        FooterComponent
     },
     data() {
         return {
@@ -49,11 +60,65 @@ export default {
             descriptionTitle_e: `Advanced solutions for large enterprises `,
             descriptionText_e: `Make deeper customer connections to drive better marketing results with a complete set of advertising and analytics solutions.`,
             descriptionLinkText_e: `See enterprise solutions`,
-            descriptionLinkUrl_e: `/for-enterprice`,
+            descriptionLinkUrl_e: `/for-enterprise`,
             descriptionImageUrl_e: `https://lh3.googleusercontent.com/3_THrEE2jwx7wgkxJ2wCx1EN7Mgd2ajWnINgI6V9gyruAe7J_U05MKQBPKaOdXI_zuQ_yMQ055PDZ2za3N6ejbbqH6hBmSxZqb45Bg=s3000`,
-            descriptionImagePosition_e: `left`
+            descriptionImagePosition_e: `left`,
 
+            cards: [
+                {
+                    id: 1,
+                    logo: '../assets/1.png',
+                    title: 'Analytics',
+                    description: 'Understand your customers so you can deliver better experiences.'
+                },
+                {
+                    id: 2,
+                    logo: '../assets/2.png',
+                    title: 'Tag Manager',
+                    description: 'Manage all your tags without editing code.'
+                },
+                {
+                    id: 3,
+                    logo: '../assets/3.png',
+                    title: 'Campaign Manager 360',
+                    description: 'Get a complete view of all your digital media campaigns.'
+                },
+                {
+                    id: 4,
+                    logo: '../assets/4.png',
+                    title: 'Display & Video 360',
+                    description: 'Reach today’s always-connected audiences wherever they are.'
+                },
+                {
+                    id: 5,
+                    logo: '../assets/5.png',
+                    title: 'Search Ads 360',
+                    description: 'Get real-time data and unified insights for your search campaigns.'
+                }
+            ]
         };
     }
 };
 </script>
+
+<style>
+.main-title {
+  text-align: center;
+  margin: 0 auto; 
+  font-size: 3em; 
+  max-width: 50%; 
+}
+
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 20vw;
+}
+
+.cards-container>* {
+    flex: 1 1 calc(33.333% - 20px);
+    margin: 10px;
+}
+</style>

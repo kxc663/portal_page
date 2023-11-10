@@ -5,6 +5,7 @@
             <AlertComponent :alertText="alertText" :btnText="alertBtnText" />
             <BannerComponent :bannerHeight="'80%'" :bannerImage="bannerImageUrl" :slogan="bannerSloganText"
                 :description="bannerDescriptionText" :btn_text="bannerBtnText" :shouldShowButton="true" />
+            <FooterComponent />
         </v-main>
     </div>
 </template>
@@ -13,13 +14,15 @@
 import AlertComponent from '../components/AlertComponent.vue';
 import CustomAppBar from '../components/CustomAppBar.vue';
 import BannerComponent from '../components/BannerComponent.vue';
+import FooterComponent from '../components/FooterComponent.vue';
 
 export default {
     name: 'ForEnterprise',
     components: {
         CustomAppBar,
         AlertComponent,
-        BannerComponent
+        BannerComponent,
+        FooterComponent
     },
     data() {
         return {

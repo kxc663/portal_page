@@ -3,18 +3,20 @@
         <CustomAppBar />
         <BannerComponent :bannerImage="bannerImageUrl" :slogan="bannerSloganText" :description="bannerDescriptionText"
             :btn_text="bannerBtnText" :shouldShowButton="false" />
+        <FooterComponent />
     </div>
 </template>
   
 <script>
 import CustomAppBar from '../components/CustomAppBar.vue';
 import BannerComponent from '../components/BannerComponent.vue';
-
+import FooterComponent from '@/components/FooterComponent.vue';
 export default {
     name: 'ForSmallBusiness',
     components: {
         CustomAppBar,
-        BannerComponent
+        BannerComponent,
+        FooterComponent
     },
     data() {
         return {
